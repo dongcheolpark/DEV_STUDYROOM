@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class GameManager : MonoBehaviour
 {
-    public SceneManager sceneManager {get;}
-    public InputManager inputManager {get;}
+    [SerializeField] public SceneManager sceneManager;
+    [SerializeField] public InputManager inputManager;
     private static GameManager Instance;
 
     public static GameManager GetInstance() {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+
 
     // Update is called once per frame
     void Update()

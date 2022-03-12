@@ -7,8 +7,9 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject Player;
     private Player player;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Player = Instantiate(Resources.Load<GameObject>("Prefabs/Circle"));
         player = Player.GetComponent<Player>();
     }
 
