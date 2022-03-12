@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
     }
     public void move(Vector2 dir) {
-        rb2D.velocity = dir * speed;
+        Debug.Log(dir);
+        rb2D.velocity = new Vector2(dir.x*speed,rb2D.velocity.y);
     }
 }
