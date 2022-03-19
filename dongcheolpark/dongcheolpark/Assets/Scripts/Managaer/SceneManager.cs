@@ -5,7 +5,7 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     [SerializeField] GameObject Player;
-    private Player player;
+    public Player player;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,7 +18,4 @@ public class SceneManager : MonoBehaviour
     {
     }
 
-    public void move(Vector2 dir) {
-        player.move(dir);
-    }
 }
