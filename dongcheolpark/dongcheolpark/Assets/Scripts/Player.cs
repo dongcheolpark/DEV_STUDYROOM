@@ -8,19 +8,34 @@ public class Player : MonoBehaviour
     public float bouncespeed,speed;
     private Rigidbody2D rb2D;
     void Awake() {
-        bouncespeed = 2500;
+        bouncespeed = 3300;
         speed = 5;
         rb2D = GetComponent<Rigidbody2D>();
+    }
+
+    void Update() {
+        if(Input.GetAxis("Horizontal") != 0) {
+            move(new Vector2(Input.GetAxis("Horizontal"),0));
+        }
+        else{
+            move(new Vector2(0,0));
+        }
     }
     void OnCollisionEnter2D(Collision2D coll) {
         if (coll.gameObject.tag.Equals("Block"))
         {
-            GameObject colBlock = coll.gameObject;
         }
+        GameManager.GetInstance().soundManager.BounceSound();
         rb2D.AddForce(Vector2.up*bouncespeed);
     }
+    
+    void OnTriggerEnter2D(Collider2D coll) {
+        if(coll.gameObject.GetComponent<Spike>() != null) {
+            GameManager.GetInstance().status = GameManager.gameStatus.Death;
+            Debug.Log("죽었습니다.");
+        }
+    }
     public void move(Vector2 dir) {
-        Debug.Log(dir);
         rb2D.velocity = new Vector2(dir.x*speed,rb2D.velocity.y);
     }
 }
