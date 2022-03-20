@@ -22,10 +22,8 @@ public class Player : MonoBehaviour
         }
     }
     void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.gameObject.tag.Equals("Block"))
-        {
-        }
         GameManager.GetInstance().soundManager.BounceSound();
+        Debug.Log(coll.gameObject.transform.position);
         rb2D.AddForce(Vector2.up*bouncespeed);
     }
     
@@ -33,6 +31,7 @@ public class Player : MonoBehaviour
         if(coll.gameObject.GetComponent<Spike>() != null) {
             GameManager.GetInstance().status = GameManager.gameStatus.Death;
             Debug.Log("죽었습니다.");
+            Destroy(this);
         }
     }
     public void move(Vector2 dir) {

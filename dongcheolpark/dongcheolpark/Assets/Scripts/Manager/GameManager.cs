@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameManager : MonoBehaviour
@@ -21,7 +23,8 @@ public class GameManager : MonoBehaviour
 
             }
             else if(_status == gameStatus.Death) {
-
+                Task.Delay(3000);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(1);
             }
         }
     }
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         status = gameStatus.Play;
+
     }
 
 

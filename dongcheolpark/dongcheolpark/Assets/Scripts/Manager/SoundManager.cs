@@ -10,8 +10,11 @@ public class SoundManager : MonoBehaviour
     }
 
     public void BounceSound() {
-        Sounds.clip = Resources.Load<AudioClip>("Audio/Bounce.wav");
-        Sounds.Play();
+        var _clip = Resources.Load<AudioClip>("Audio/Bounce");
+        if(_clip != null) {
+            Sounds.clip = _clip;
+            Sounds.Play();
+        }
     }
 
 }
