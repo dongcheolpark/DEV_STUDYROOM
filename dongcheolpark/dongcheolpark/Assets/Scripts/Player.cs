@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D coll) {
         if(coll.gameObject.GetComponent<Spike>() != null) {
+            GameData.getInstance().StageAppleCount = 0;
             GameManager.GetInstance().status = GameManager.gameStatus.Death;
             Debug.Log("죽었습니다.");
             Destroy(this);
