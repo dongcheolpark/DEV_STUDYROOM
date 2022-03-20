@@ -5,21 +5,20 @@ public class GameData
         stage = 1;
     }
 	private int _stage;
+    public int StageAppleCount {get;set;}
     public int stage {
         get {return _stage;}
         private set {
-            stage = value;
+            _stage = value;
         }
     }
-    private GameData _instance = null;
+    private static GameData _instance = null;
 
-    public GameData instance {
-        get {
-            if(_instance == null) {
-                _instance = new GameData();
-            }
-            return _instance;
+    public static GameData getInstance() {
+        if(_instance == null) {
+            _instance = new GameData();
         }
+        return _instance;
     }
 
     public void clearStage() {

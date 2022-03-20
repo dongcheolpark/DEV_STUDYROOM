@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
                 Task.Delay(3000);
                 UnityEngine.SceneManagement.SceneManager.LoadScene(1);
             }
+            else if(_status == gameStatus.Clear) {
+                Debug.Log("클리어");
+                GameData.getInstance().clearStage();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            }
         }
     }
     private static GameManager Instance;
@@ -38,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         status = gameStatus.Play;
-
+        StageFactory.getStage(GameData.getInstance().stage);
     }
 
 
