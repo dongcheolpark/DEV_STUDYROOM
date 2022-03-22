@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
             move(new Vector2(0,0));
         }
     }
-    void OnCollisionEnter2D(Collision2D coll) {
+
+    public void Jump() {
         GameManager.GetInstance().soundManager.BounceSound();
-        Debug.Log(coll.gameObject.transform.position);
         rb2D.AddForce(Vector2.up*bouncespeed);
     }
     

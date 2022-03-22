@@ -5,7 +5,14 @@ public class GameData
         stage = 1;
     }
 	private int _stage;
-    public int StageAppleCount {get;set;}
+    private int _StageAppleCount;
+    public int StageAppleCount {
+        get { return _StageAppleCount; }
+        set {
+            _StageAppleCount = value;
+            GameManager.GetInstance().uIManager.changeAppleCount(_StageAppleCount);
+        }
+    }
     public int stage {
         get {return _stage;}
         private set {

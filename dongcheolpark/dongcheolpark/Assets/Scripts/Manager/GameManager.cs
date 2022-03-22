@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public MapManager mapManager;
     [SerializeField] public ResourceManager resourceManager;
     [SerializeField] public SoundManager soundManager;
+    [SerializeField] public UIManager uIManager;
     public enum gameStatus {Play,Death,Clear};
     private gameStatus _status;
     public gameStatus status {
